@@ -12,7 +12,7 @@ interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const getAuthorUrl = () =>
-	import.meta.env.UE_PROTOCOL + import.meta.env.UE_AUTHOR_HOST;
+	import.meta.env.UE_PROTOCOL + ':' + import.meta.env.UE_AUTHOR_HOST;
 
 const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 ---
