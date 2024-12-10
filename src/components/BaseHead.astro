@@ -24,9 +24,11 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 <meta name="generator" content={Astro.generator} />
 
 <!-- Universal Editor -->
-<meta name="urn:adobe:aue:system:aemconnection" content={getAuthorUrl()} data-rh="true"/>
 <script type="application/vnd.adobe.aue.component+json" src="/ue/component-definition.json"></script>
 <script type="application/vnd.adobe.aue.model+json" src="/ue/model-definition.json"></script>
+
+<meta name="urn:adobe:aue:system:aemconnection" content={getAuthorUrl()} data-rh="true"/>
+<meta name="urn:adobe:aue:config:extensions" content="https://47679-workflowextension.adobeio-static.net" data-rh="true">
 
 <!-- Font preloads -->
 <link
