@@ -3,6 +3,13 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+const editorProps = {
+	"data-aue-resource":
+		"urn:aemconnection:/content/dam/" + "/" + "jcr:content/data/master",
+	"data-aue-type": "reference",
+	itemfilter: "cf",
+};
 ---
 
 <!doctype html>
@@ -12,7 +19,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main {...editorProps}>
 			<h1>🧑‍🚀 Hello, Astronaut!</h1>
 			<p>
 				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
