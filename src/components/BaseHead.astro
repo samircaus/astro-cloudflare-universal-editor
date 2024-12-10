@@ -25,6 +25,8 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 
 <!-- Universal Editor -->
 <meta name="urn:adobe:aue:system:aemconnection" content={getAuthorUrl()} />
+<script type="application/vnd.adobe.aue.component+json" src="/public/ue/component-definition.json"></script>
+<script type="application/vnd.adobe.aue.model+json" src="/public/ue/model-definition.json"></script>
 
 <!-- Font preloads -->
 <link
