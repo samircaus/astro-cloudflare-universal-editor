@@ -11,12 +11,29 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 const currentPath = Astro.url.pathname;
 
-const editorProps = {
+const editorPropsCF = {
 	"data-aue-resource":
 		"urn:aemconnection:/content/dam/" + currentPath + "jcr:content/data/master",
 	"data-aue-type": "reference",
 	itemfilter: "cf",
 };
+
+const editorPropsImage = {
+	"data-aue-prop": "image",
+	"data-aue-type": "media",
+	"data-aue-label": "Image",
+};
+
+const editorPropsTitle = {
+	"data-aue-prop": "title",
+	"data-aue-type": "text",
+};
+
+const editorPropsContent = {
+	"data-aue-prop": "content",
+	"data-aue-type": "richtext",
+};
+
 ---
 
 <html lang="en">
@@ -66,11 +83,11 @@ const editorProps = {
 	<body>
 		<Header />
 		<main>
-			<article {...editorProps}>
-				<div class="hero-image">
+			<article {...editorPropsCF}>
+				<div class="hero-image" >
 					{
 						heroImage && (
-							<img
+							<img {...editorPropsImage}
 								width={1020}
 								height={510}
 								src={heroImage}
@@ -80,7 +97,7 @@ const editorProps = {
 					}
 				</div>
 				<div class="prose">
-					<div class="title">
+					<div class="title" >
 						<div class="date">
 							<FormattedDate date={pubDate} />
 							{
@@ -92,10 +109,10 @@ const editorProps = {
 								)
 							}
 						</div>
-						<h1>{title}</h1>
+						<h1 {...editorPropsTitle}>{title}</h1>
 						<hr />
 					</div>
-					<slot />
+					<slot {...editorPropsContent}/>
 				</div>
 			</article>
 		</main>
